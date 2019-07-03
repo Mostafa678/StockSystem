@@ -80,7 +80,7 @@
             this.DataGridView.Location = new System.Drawing.Point(26, 130);
             this.DataGridView.Name = "DataGridView";
             this.DataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DataGridView.Size = new System.Drawing.Size(255, 147);
+            this.DataGridView.Size = new System.Drawing.Size(483, 154);
             this.DataGridView.TabIndex = 7;
             this.DataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellEndEdit);
             this.DataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView_CellMouseClick);
@@ -88,16 +88,18 @@
             // 
             // SL
             // 
+            this.SL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SL.FillWeight = 98.47716F;
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
-            this.SL.Width = 50;
             // 
             // categoryNameDataGridViewTextBoxColumn
             // 
+            this.categoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.FillWeight = 101.5228F;
             this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
             this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            this.categoryNameDataGridViewTextBoxColumn.Width = 150;
             // 
             // categoryIDDataGridViewTextBoxColumn
             // 
@@ -115,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 308);
+            this.ClientSize = new System.Drawing.Size(583, 308);
             this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.CategorySaveButton);
             this.Controls.Add(this.categoryNameTextBox);

@@ -1,0 +1,2 @@
+# StockSystem
+Stock Management System

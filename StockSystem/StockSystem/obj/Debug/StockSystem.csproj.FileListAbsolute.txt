@@ -1,0 +1,10 @@
+D:\Git\Project\StockSystem\StockSystem\StockSystem\bin\Debug\StockSystem.exe.config
+D:\Git\Project\StockSystem\StockSystem\StockSystem\bin\Debug\StockSystem.exe
+D:\Git\Project\StockSystem\StockSystem\StockSystem\bin\Debug\StockSystem.pdb
+D:\Git\Project\StockSystem\StockSystem\StockSystem\obj\Debug\StockSystem.CatagorySetup.resources
+D:\Git\Project\StockSystem\StockSystem\StockSystem\obj\Debug\StockSystem.Properties.Resources.resources
+D:\Git\Project\StockSystem\StockSystem\StockSystem\obj\Debug\StockSystem.csproj.GenerateResource.Cache
+D:\Git\Project\StockSystem\StockSystem\StockSystem\obj\Debug\StockSystem.csproj.CoreCompileInputs.cache
+D:\Git\Project\StockSystem\StockSystem\StockSystem\obj\Debug\StockSystem.exe
+D:\Git\Project\StockSystem\StockSystem\StockSystem\obj\Debug\StockSystem.pdb
+D:\Git\Project\StockSystem\StockSystem\StockSystem\obj\Debug\StockSystem.csprojResolveAssemblyReference.cache

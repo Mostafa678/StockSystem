@@ -12,7 +12,7 @@ namespace StockSystem.Repository
 {
     public class CategoryRepository
     {
-        string connectionString = @"Server=GUB-D-01\SQLEXPRESS; Database=StockSystem; Integrated Security=True";
+        string connectionString = @"Server=IT\SQLEXPRESS; Database=StockSystem; Integrated Security=True";
         private SqlConnection sqlConnection;
         private string commandString;
         private SqlCommand sqlCommand;
@@ -46,8 +46,22 @@ namespace StockSystem.Repository
             sqlConnection.Close();
 
             return dataTable;
+        }
+
+        public int UpdateCategory(Category category)
+        {
+            commandString = @"UPDATE Category SET CategoryName= '"+category.CategoryName+ "' WHERE CategoryID='" + category.CategoryID + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            sqlConnection.Open();
+            int isExecuted;
+            isExecuted = sqlCommand.ExecuteNonQuery();
 
 
+
+            sqlConnection.Close();
+
+            return isExecuted;
         }
     }
 }

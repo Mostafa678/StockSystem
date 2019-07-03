@@ -20,5 +20,10 @@ namespace StockSystem.BLL
         {
             return _categoryRepository.ShowCategory();
         }
+
+        public int UpdateCategory(Category category)
+        {
+            return _categoryRepository.UpdateCategory(category);
+        }
     }
 }

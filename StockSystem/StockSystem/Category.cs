@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace StockSystem
 {
     public partial class CatagorySetup : Form
@@ -26,7 +27,7 @@ namespace StockSystem
         //  public object _studentManager { get; private set; }
         private void CatagorySetup_Load(object sender, EventArgs e)
         {
-            dataGridView.DataSource = _categoryManager.ShowCategory();
+            DataGridView.DataSource = _categoryManager.ShowCategory();
         }
 
         private void CategorySaveButton_Click(object sender, EventArgs e)
@@ -53,19 +54,64 @@ namespace StockSystem
             }
 
             //show Category
-            dataGridView.DataSource = _categoryManager.ShowCategory();
+            DataGridView.DataSource = _categoryManager.ShowCategory();
         }
 
-       private void dataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+       private void DataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            this.dataGridView.Rows[e.RowIndex].Cells["SL"].Value = (e.RowIndex + 1).ToString();
+            this.DataGridView.Rows[e.RowIndex].Cells["SL"].Value = (e.RowIndex + 1).ToString();
         }
-        
-        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void DataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
-           categoryNameTextBox.Text = dataGridView.Rows[e.RowIndex].Cells["CategoryName"].FormattedValue.ToString();
+            categoryNameTextBox.Text = "";
+            categoryNameTextBox.Text = DataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            //IDTextBox.Text = DataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
 
         }
+
+        private void DataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            categoryNameTextBox.Text = DataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            category.CategoryName = categoryNameTextBox.Text;
+
+           // IDTextBox.Text = DataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            category.CategoryID = Convert.ToInt32(DataGridView.Rows[e.RowIndex].Cells[2].Value.ToString());
+
+            int isExecuted = _categoryManager.UpdateCategory(category);
+            if (isExecuted > 0)
+            {
+                MessageBox.Show("Update");
+            }
+            else
+            {
+                MessageBox.Show("Not Update!!");
+            }
+        }
+
+
+
+        //private void DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        ////////    categoryNameTextBox.Text = DataGridView.SelectedRows[0].Cells[0].Value.ToString();
+        ////////    IDTextBox.Text = DataGridView.SelectedRows[0].Cells[1].Value.ToString();
+
+
+        //////    categoryNameTextBox.Text = DataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+        //////    category.CategoryName = categoryNameTextBox.Text;
+
+        //////    IDTextBox.Text = DataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+        //////    category.CategoryID = Convert.ToInt32(IDTextBox.Text);
+
+
+        ////    if (e.RowIndex >= 0)
+        ////    {
+        ////        DataGridViewRow row = this.DataGridView.Rows[e.RowIndex];
+        ////        categoryNameTextBox.Text = row.Cells[1].Value.ToString();
+        ////        IDTextBox.Text = row.Cells[2].Value.ToString();
+        ////    }
+        //}
+
+
     }
 }

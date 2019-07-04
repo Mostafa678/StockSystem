@@ -18,7 +18,7 @@ namespace StockSystem.Repository
         private SqlCommand sqlCommand;
         private DataSet dataSet;
 
-        //public string ConnectionString { get => connectionString; set => connectionString = value; }
+       
 
         public int InsertCategory(Category  category)
         {
@@ -38,13 +38,13 @@ namespace StockSystem.Repository
             sqlConnection = new SqlConnection(connectionString);
             commandString = @"select * from Category where CategoryName='" + category.CategoryName + "'";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
-
+            sqlConnection.Open();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             DataSet dataSet = new DataSet();
 
             sqlDataAdapter.Fill(dataSet);
             int isExisted = dataSet.Tables[0].Rows.Count;
-
+            sqlConnection.Close();
             return isExisted;
         }
         public DataTable ShowCategory()

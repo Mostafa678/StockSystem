@@ -16,6 +16,7 @@ namespace StockSystem.Repository
         private SqlConnection sqlConnection;
         private string commandString;
         private SqlCommand sqlCommand;
+        private DataSet dataSet;
 
         //public string ConnectionString { get => connectionString; set => connectionString = value; }
 
@@ -32,6 +33,20 @@ namespace StockSystem.Repository
 
             return isExecuted;
         }
+        public int IsExisted(Category category)
+        {
+            sqlConnection = new SqlConnection(connectionString);
+            commandString = @"select * from Category where CategoryName='" + category.CategoryName + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataSet dataSet = new DataSet();
+
+            sqlDataAdapter.Fill(dataSet);
+            int isExisted = dataSet.Tables[0].Rows.Count;
+
+            return isExisted;
+        }
         public DataTable ShowCategory()
         {
             sqlConnection = new SqlConnection(connectionString);
@@ -46,8 +61,24 @@ namespace StockSystem.Repository
             sqlConnection.Close();
 
             return dataTable;
-
-
         }
+
+        public int UpdateCategory(Category category)
+        {
+            commandString = @"UPDATE Category SET CategoryName= '"+category.CategoryName+ "' WHERE CategoryID='" + category.CategoryID + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            sqlConnection.Open();
+            int isExecuted;
+            isExecuted = sqlCommand.ExecuteNonQuery();
+
+
+
+            sqlConnection.Close();
+
+            return isExecuted;
+        }
+
+
     }
 }

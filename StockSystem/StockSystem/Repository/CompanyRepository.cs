@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace StockSystem.Repository
 {
-    public class CategoryRepository
+    class CompanyRepository
     {
         string connectionString = @"Server=GUB-D-01\SQLEXPRESS; Database=StockSystem; Integrated Security=True";
         private SqlConnection sqlConnection;
@@ -18,12 +17,12 @@ namespace StockSystem.Repository
         private SqlCommand sqlCommand;
         private DataSet dataSet;
 
-       
 
-        public int InsertCategory(Category  category)
+
+        public int InsertCompany(Company company)
         {
             sqlConnection = new SqlConnection(connectionString);
-            commandString = @"INSERT INTO Category (CategoryName) VALUES ('" + category.CategoryName + "')";
+            commandString = @"INSERT INTO Company (CompanyName) VALUES ('" + company.CompanyName + "')";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             int isExecuted;
@@ -33,10 +32,10 @@ namespace StockSystem.Repository
 
             return isExecuted;
         }
-        public int IsExisted(Category category)
+        public int IsExisted(Company company)
         {
             sqlConnection = new SqlConnection(connectionString);
-            commandString = @"select * from Category where CategoryName='" + category.CategoryName + "'";
+            commandString = @"select * from Company  where CompanyName='" + company.CompanyName + "'";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -47,10 +46,10 @@ namespace StockSystem.Repository
             sqlConnection.Close();
             return isExisted;
         }
-        public DataTable ShowCategory()
+        public DataTable ShowCompany()
         {
             sqlConnection = new SqlConnection(connectionString);
-            commandString = @"select * from Category";
+            commandString = @"select * from Company ";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             sqlConnection.Open();
@@ -63,13 +62,12 @@ namespace StockSystem.Repository
             return dataTable;
         }
 
-        public int UpdateCategory(Category category)
+        public int UpdateCompany(Company company)
         {
-            commandString = @"UPDATE Category SET CategoryName= '"+category.CategoryName+ "' WHERE CategoryID='" + category.CategoryID + "'";
+            commandString = @"UPDATE Company  SET CompanyName= '" + company.CompanyName + "' WHERE CompanyID='" + company.CompanyID + "'";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             sqlConnection.Open();
-
             int isExecuted;
             isExecuted = sqlCommand.ExecuteNonQuery();
 

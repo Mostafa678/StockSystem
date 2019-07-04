@@ -3,7 +3,7 @@ use StockSystem
 
 Create table Category
 (
- CategoryId int IDENTITY (1,1) primary key,
+ CategoryID int IDENTITY (1,1) primary key,
  CategoryName varchar(100)
  )
  --drop table category
@@ -17,3 +17,16 @@ update category set CategoryName= 'asd' where CategoryId = 2
 
 
 select * from Category where CategoryName= 'test'
+
+
+Create table Company
+(
+ CompanyID int IDENTITY (1,1) primary key,
+ CompanyName varchar(100)
+ )
+ --drop table  Company
+ select * from Company
+
+ INSERT INTO Company (CompanyName) VALUES ('RFL')
+INSERT INTO Company (CompanyName) VALUES ('pran')
+ 

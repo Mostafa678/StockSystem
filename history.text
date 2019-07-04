@@ -1,0 +1,54 @@
+    1  git clone git@github.com:Mostafa678/StockSystem.git
+    2  git clone git@github.com:Mostafa678/StockSystem.git
+    3  git clone git@github.com:Mostafa678/StockManagement.git
+    4  ssh-keygen -t rsa -b 4096 -C "golammostafa678@gmail.com"
+    5  git clone git@github.com:Mostafa678/StockManagement.git
+    6  start the ssh-agent in the background
+    7  eval $(ssh-agent -s)
+    8  ssh-add ~/.ssh/id_rsa
+    9  git clone git@github.com:Mostafa678/StockManagement.git
+   10  git clone git@github.com:Mostafa678/StockManagement.git
+   11  git remote add origin git@github.com:Mostafa678/StockManagement.git
+   12  git remote add origin git@github.com:Mostafa678/StockManagement.git
+   13  git clone git@github.com:Mostafa678/StockManagement.git
+   14  git clone https://github.com/turjo2222/StockSystem.git
+   15  git clone git@github.com:Mostafa678/test.git
+   16  git clone git@github.com:mostafa678/test.git
+   17  git clone https://github.com/mostafa678/StockSystem.git
+   18  git clone https://github.com/mostafa678/StockSystem.git
+   19  git config  --global user.name 
+   20  git config  --global user.password "AAaa123*"
+   21  git commit -m "Show Category in grid view"
+   22  cd StockSystem/
+   23  git commit -m "Show Category in grid view"
+   24  git status 
+   25  git add --all
+   26  git commit -m "Show Category in grid view"
+   27  git push origin master 
+   28  git clone https://github.com/mostafa678/StockSystem.git
+   29  git add --all
+   30  git add --all
+   31  git commit -m "252951_Day:2"
+   32  git commit -m "Add check Existing Category in Category Form"
+   33  git checkout -b 252951_Day:2
+   34  git checkout -b 252951Day2
+   35  git push origin 252951Day2 `
+exit
+   36  git push origin 252951Day2
+   37  git status
+   38  git commit -m "Add app config"
+   39  git checkout -b 252951Day2 
+   40  git push origin 252951Day2
+   41  git add --all
+   42  git commit -m ""
+   43  git commit -m "add isexisted"
+   44  git push origin 252951Day2
+   45  git add -all
+   46  git add --all
+   47  git commit -m "Company Setup From Complete"
+   48  git commit -m "Company Setup Form Complete"
+   49  git add --all
+   50  git commit -m "Company Setup Form Complete"
+   51  git checkout -b "252951 Company Setup"
+   52  git checkout -b 252951_Company_Setup
+   53  history >> history.text

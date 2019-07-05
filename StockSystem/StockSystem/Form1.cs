@@ -25,9 +25,9 @@ namespace StockSystem
             CatagorySetup catagorySetup = new CatagorySetup();
             
             catagorySetup.ShowDialog();
-
-            
         }
+
+
 
         private void ButtonCompany_Click(object sender, EventArgs e)
         {

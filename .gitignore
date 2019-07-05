@@ -22,6 +22,7 @@
 
 **/*.scc
 
+
 #Ignoring all *.vspscc files
 
 **/*.vspscc
@@ -48,8 +49,10 @@
 
 
 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+
 
 
 

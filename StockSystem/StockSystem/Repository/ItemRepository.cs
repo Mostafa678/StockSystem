@@ -7,50 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace StockSystem.Repository
 {
-    public class CategoryRepository
+   public class ItemRepository
     {
         string connectionString = @"Server=IT\SQLEXPRESS; Database=StockSystem; Integrated Security=True";
         private SqlConnection sqlConnection;
         private string commandString;
         private SqlCommand sqlCommand;
-        private DataSet dataSet;
+        //private DataSet dataSet;
 
-       
+        //public DataTable LoadItemCategory()
+        //{
 
-        public int InsertCategory(Category  category)
+
+        //    sqlConnection = new SqlConnection(connectionString);
+
+        //    commandString = @"SELECT CategoryName AS Category FROM Category";
+        //    sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+        //    sqlConnection.Open();
+
+        //    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+        //    DataTable dataTable = new DataTable();
+        //    sqlDataAdapter.Fill(dataTable);
+
+        //    sqlConnection.Close();
+        //    return dataTable;
+        //}
+        public DataTable LoadCategory()
         {
             sqlConnection = new SqlConnection(connectionString);
-            commandString = @"INSERT INTO Category (CategoryName) VALUES ('" + category.CategoryName + "')";
-            sqlCommand = new SqlCommand(commandString, sqlConnection);
-            sqlConnection.Open();
-            int isExecuted;
-            isExecuted = sqlCommand.ExecuteNonQuery();
 
-            sqlConnection.Close();
-
-            return isExecuted;
-        }
-        public int IsExisted(Category category)
-        {
-            sqlConnection = new SqlConnection(connectionString);
-            commandString = @"select * from Category where CategoryName='" + category.CategoryName + "'";
-            sqlCommand = new SqlCommand(commandString, sqlConnection);
-            sqlConnection.Open();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            dataSet = new DataSet();
-
-            sqlDataAdapter.Fill(dataSet);
-            int isExisted = dataSet.Tables[0].Rows.Count;
-            sqlConnection.Close();
-            return isExisted;
-        }
-        public DataTable ShowCategory()
-        {
-            sqlConnection = new SqlConnection(connectionString);
-            commandString = @"select * from Category";
+            commandString = @"SELECT * FROM Category";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             sqlConnection.Open();
@@ -58,28 +47,44 @@ namespace StockSystem.Repository
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
-            sqlConnection.Close();
 
+            sqlConnection.Close();
             return dataTable;
         }
-
-        public int UpdateCategory(Category category)
+        public DataTable LoadCompany()
         {
-            commandString = @"UPDATE Category SET CategoryName= '"+category.CategoryName+ "' WHERE CategoryID='" + category.CategoryID + "'";
+            sqlConnection = new SqlConnection(connectionString);
+
+            commandString = @"SELECT * FROM Company";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             sqlConnection.Open();
 
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            sqlConnection.Close();
+            return dataTable;
+        }
+
+
+
+
+
+        public int InsertItem(Item item)
+        {
+            sqlConnection = new SqlConnection(connectionString);
+            commandString = @"INSERT INTO Item (ItemName,ItemReorder,CatID,ComID) VALUES ('" + item.ItemName+"',"+item.ItemReorder+","+item.CatID+","+item.ComID+")";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
             int isExecuted;
             isExecuted = sqlCommand.ExecuteNonQuery();
-
-
 
             sqlConnection.Close();
 
             return isExecuted;
         }
-
 
     }
 }

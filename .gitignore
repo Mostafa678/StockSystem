@@ -4,13 +4,19 @@
 
 # Ignoring all bin 
 
+
+
 **/bin/
 **/Bin/
+
+
 
 # Ignoring all obj
 
 **/obj/
 **/Obj/
+
+
 
 
 #Ignoring all suo files
